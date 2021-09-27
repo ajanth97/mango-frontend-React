@@ -26,13 +26,9 @@ const shouldShowEmailError = !isValid && isVisited
 const isLoading = respData.loading
 const postError = respData.errorData !== null
 
-const payloadData = {emailAddress: email, password: password}
+const payloadData = {email: email, password: password}
 
-const endpoint = 'https://secnds-server.herokuapp.com/login'
-
-const googleLogin = () => {
-  window.location.assign("https://secnds-server.herokuapp.com/auth/google")
-}
+const endpoint = 'https://mango-backend.herokuapp.com/api/login'
 
 const onChangeEmail = ({target: {value}}) => {
   setIsValid(validateEmail(value))
@@ -90,7 +86,7 @@ const postData = () => {
         title="Log in"
       >
        <form onSubmit={onSubmit}>
-        <FormControl label="Please log in to your secnds account" error={shouldShowEmailError ? 'Please enter a valid Email' : postError ? 'Invalid Email or Password': null}>
+        <FormControl label="Please log in to your mango account" error={shouldShowEmailError ? 'Please enter a valid Email' : postError ? 'Invalid Email or Password': null}>
         <React.Fragment>
         <StyledBody>
         <Input placeholder="Email Address" value={email} onChange={onChangeEmail} onBlur={() => {setIsVisited(true)}} error={shouldShowEmailError || postError}/>
@@ -113,13 +109,6 @@ const postData = () => {
         </React.Fragment>
         </FormControl>
       </form>
-      OR
-      <br/>
-      <br/>
-      <Button onClick={googleLogin} overrides={{BaseButton: {style: {width: '100%'}}}}>Log in with Google</Button>
-      <br/>  
-      <br/>
-      <Button overrides={{BaseButton: {style: {width: '100%'}}}}>Log in with Facebook</Button>
       </Card>
       </Layer>
   )   

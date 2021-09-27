@@ -17,7 +17,7 @@ const itemProps = {
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const LandingPage = () => {
-   const {data, error} = useSWR('https://secnds-server.herokuapp.com/listing/all', fetcher)    
+   const {data, error} = useSWR('https://mango-backend.herokuapp.com/', fetcher)    
     if (error){
         return <div>Error failed to Load</div>
     }
@@ -30,7 +30,7 @@ const LandingPage = () => {
         <FlexGridItem key={content.id} {...itemProps}><ListingCard content={content}/></FlexGridItem> 
       )
     }
-     const listingCards = data.map(createListingCard)
+    // const listingCards = data.map(createListingCard)
     return (
         <Layer>
         <FlexGrid
@@ -38,7 +38,7 @@ const LandingPage = () => {
         flexGridColumnGap="scale800"
         flexGridRowGap="scale800"
       >
-       {listingCards}
+       {/*listingCards*/}
       </FlexGrid>
       </Layer>
     )

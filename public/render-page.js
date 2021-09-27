@@ -17710,7 +17710,7 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-layout/gatsby-ssr */ "./node_modules/gatsby-plugin-layout/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "component": "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/src/components/Layout.jsx"
+    "component": "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/src/components/Layout.jsx"
   }
 }];
 /* global plugins */
@@ -19186,7 +19186,7 @@ try {
   Layout = preferDefault(__webpack_require__(/*! ./src/components/Layout.jsx */ "./src/components/Layout.jsx"));
 } catch (e) {
   if (e.toString().indexOf("Error: Cannot find module") !== -1) {
-    throw new Error("Couldn't find layout component at \"" + "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/src/components/Layout.jsx" + ".\n\n" + "Please create layout component in that location or specify path to layout component in gatsby-config.js");
+    throw new Error("Couldn't find layout component at \"" + "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/src/components/Layout.jsx" + ".\n\n" + "Please create layout component in that location or specify path to layout component in gatsby-config.js");
   } else {
     // Logging the error for debugging older browsers as there is no way
     // to wrap the thrown error in a try/catch.
@@ -60502,24 +60502,24 @@ function createSidecarMedium(options) {
 /***/ }),
 
 /***/ "react-dom/server":
-/*!***************************************************************************************************************************!*\
-  !*** external "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/node_modules/react-dom/server.js" ***!
-  \***************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** external "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/node_modules/react-dom/server.js" ***!
+  \********************************************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/node_modules/react-dom/server.js");
+module.exports = require("/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/node_modules/react-dom/server.js");
 
 /***/ }),
 
 /***/ "react":
-/*!**********************************************************************************************************************!*\
-  !*** external "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/node_modules/react/index.js" ***!
-  \**********************************************************************************************************************/
+/*!***************************************************************************************************************************!*\
+  !*** external "/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/node_modules/react/index.js" ***!
+  \***************************************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/secnds-frontend/node_modules/react/index.js");
+module.exports = require("/Users/ajanth/Documents/Documents – Ajanth’s Mac/GitHub/mango-frontend-React/node_modules/react/index.js");
 
 /***/ }),
 
