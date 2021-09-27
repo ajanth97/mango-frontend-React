@@ -1,0 +1,35 @@
+{
+  "name": "secnds-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "secnds-frontend",
+  "author": "Ajanth",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "baseui": "^10.1.0",
+    "email-validator": "^2.0.4",
+    "gatsby": "^3.12.0",
+    "gatsby-plugin-layout": "^2.12.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styletron-engine-atomic": "^1.4.8",
+    "styletron-react": "^6.0.1",
+    "swr": "^0.5.6"
+  },
+  "devDependencies": {
+    "@types/styletron-engine-atomic": "^1.1.1",
+    "@types/styletron-react": "^5.0.3",
+    "@types/styletron-standard": "^2.0.2",
+    "eslint": "^7.32.0"
+  }
+}
