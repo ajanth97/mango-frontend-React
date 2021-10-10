@@ -4,6 +4,7 @@ import {Provider as StyletronProvider} from 'styletron-react';
 import {LightTheme, BaseProvider, styled} from 'baseui';
 import { Layer } from "baseui/layer";
 import { NewNavbar } from "./NewNavbar";
+import { ToasterContainer } from "baseui/toast";
 
 const Centered = styled('div', {
     display: 'flex',
@@ -32,12 +33,14 @@ const Layout = ({children}) => {
         <StyletronProvider value={engine}>
             <BaseProvider theme={LightTheme}>
             <Centered>
+               <ToasterContainer>
                <NewNavbar/>
                <main>
                    <Layer>
                    {children}
                    </Layer>
                </main>
+              </ToasterContainer>
             </Centered>
             </BaseProvider>
         </StyletronProvider>

@@ -13992,6 +13992,46 @@ var monoFontFamily = '"Lucida Console", Monaco, monospace';
 
 /***/ }),
 
+/***/ "./node_modules/baseui/esm/toast/constants.js":
+/*!****************************************************!*\
+  !*** ./node_modules/baseui/esm/toast/constants.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "KIND": () => (/* binding */ KIND),
+/* harmony export */   "TYPE": () => (/* binding */ TYPE),
+/* harmony export */   "PLACEMENT": () => (/* binding */ PLACEMENT)
+/* harmony export */ });
+/*
+Copyright (c) Uber Technologies, Inc.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
+*/
+var KIND = Object.freeze({
+  info: 'info',
+  positive: 'positive',
+  warning: 'warning',
+  negative: 'negative'
+});
+var TYPE = Object.freeze({
+  inline: 'inline',
+  toast: 'toast'
+});
+var PLACEMENT = Object.freeze({
+  topLeft: 'topLeft',
+  top: 'top',
+  topRight: 'topRight',
+  bottomRight: 'bottomRight',
+  bottom: 'bottom',
+  bottomLeft: 'bottomLeft'
+});
+
+/***/ }),
+
 /***/ "./node_modules/baseui/esm/toast/locale.js":
 /*!*************************************************!*\
   !*** ./node_modules/baseui/esm/toast/locale.js ***!
@@ -14013,6 +14053,883 @@ var locale = {
   close: 'Close'
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (locale);
+
+/***/ }),
+
+/***/ "./node_modules/baseui/esm/toast/styled-components.js":
+/*!************************************************************!*\
+  !*** ./node_modules/baseui/esm/toast/styled-components.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getPlacement": () => (/* binding */ getPlacement),
+/* harmony export */   "Root": () => (/* binding */ Root),
+/* harmony export */   "InnerContainer": () => (/* binding */ InnerContainer),
+/* harmony export */   "Body": () => (/* binding */ Body),
+/* harmony export */   "CloseIconSvg": () => (/* binding */ CloseIconSvg)
+/* harmony export */ });
+/* harmony import */ var _styles_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/index.js */ "./node_modules/baseui/esm/styles/styled.js");
+/* harmony import */ var _icon_styled_components_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icon/styled-components.js */ "./node_modules/baseui/esm/icon/styled-components.js");
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants.js */ "./node_modules/baseui/esm/toast/constants.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/*
+Copyright (c) Uber Technologies, Inc.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
+*/
+
+
+
+
+function getBackgroundColor(kind, type, theme) {
+  var _KIND$info$KIND$posit;
+
+  var isInline = type === _constants_js__WEBPACK_IMPORTED_MODULE_0__.TYPE.inline;
+  return (_KIND$info$KIND$posit = {}, _defineProperty(_KIND$info$KIND$posit, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.info, isInline ? theme.colors.notificationInfoBackground : theme.colors.toastInfoBackground), _defineProperty(_KIND$info$KIND$posit, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.positive, isInline ? theme.colors.notificationPositiveBackground : theme.colors.toastPositiveBackground), _defineProperty(_KIND$info$KIND$posit, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.warning, isInline ? theme.colors.notificationWarningBackground : theme.colors.toastWarningBackground), _defineProperty(_KIND$info$KIND$posit, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.negative, isInline ? theme.colors.notificationNegativeBackground : theme.colors.toastNegativeBackground), _KIND$info$KIND$posit)[kind];
+}
+
+function getFontColor(kind, theme) {
+  var _KIND$info$KIND$posit2;
+
+  return (_KIND$info$KIND$posit2 = {}, _defineProperty(_KIND$info$KIND$posit2, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.info, theme.colors.notificationInfoText), _defineProperty(_KIND$info$KIND$posit2, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.positive, theme.colors.notificationPositiveText), _defineProperty(_KIND$info$KIND$posit2, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.warning, theme.colors.notificationWarningText), _defineProperty(_KIND$info$KIND$posit2, _constants_js__WEBPACK_IMPORTED_MODULE_0__.KIND.negative, theme.colors.notificationNegativeText), _KIND$info$KIND$posit2)[kind];
+}
+
+function getPlacement(placement) {
+  var _PLACEMENT$topLeft$PL;
+
+  return (_PLACEMENT$topLeft$PL = {}, _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.topLeft, {
+    top: 0,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+  }), _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.top, {
+    top: 0,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+  }), _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.topRight, {
+    top: 0,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+  }), _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.bottomRight, {
+    bottom: 0,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    flexDirection: 'column-reverse'
+  }), _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.bottom, {
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flexDirection: 'column-reverse'
+  }), _defineProperty(_PLACEMENT$topLeft$PL, _constants_js__WEBPACK_IMPORTED_MODULE_0__.PLACEMENT.bottomLeft, {
+    bottom: 0,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    flexDirection: 'column-reverse'
+  }), _PLACEMENT$topLeft$PL)[placement];
+} // $FlowFixMe https://github.com/facebook/flow/issues/7745
+
+var Root = (0,_styles_index_js__WEBPACK_IMPORTED_MODULE_1__.styled)('div', function (props) {
+  var $placement = props.$placement,
+      $theme = props.$theme;
+  return _objectSpread({
+    pointerEvents: 'none',
+    position: 'fixed',
+    right: 0,
+    left: 0,
+    display: 'flex',
+    marginTop: $theme.sizing.scale300,
+    marginBottom: $theme.sizing.scale300,
+    marginLeft: $theme.sizing.scale600,
+    marginRight: $theme.sizing.scale600
+  }, getPlacement($placement));
+}); // $FlowFixMe https://github.com/facebook/flow/issues/7745
+
+Root.displayName = "Root";
+var InnerContainer = (0,_styles_index_js__WEBPACK_IMPORTED_MODULE_1__.styled)('div', {}); // $FlowFixMe https://github.com/facebook/flow/issues/7745
+
+InnerContainer.displayName = "InnerContainer";
+var Body = (0,_styles_index_js__WEBPACK_IMPORTED_MODULE_1__.styled)('div', function (props) {
+  var $isVisible = props.$isVisible,
+      $kind = props.$kind,
+      $type = props.$type,
+      $theme = props.$theme;
+  var isInline = $type === _constants_js__WEBPACK_IMPORTED_MODULE_0__.TYPE.inline;
+  return _objectSpread(_objectSpread({}, $theme.typography.font250), {}, {
+    pointerEvents: 'auto',
+    color: isInline ? getFontColor($kind, $theme) : $theme.colors.toastText,
+    height: 'auto',
+    width: '288px',
+    paddingTop: $theme.sizing.scale600,
+    paddingRight: $theme.sizing.scale600,
+    paddingBottom: $theme.sizing.scale600,
+    paddingLeft: $theme.sizing.scale600,
+    marginTop: $theme.sizing.scale300,
+    marginBottom: $theme.sizing.scale300,
+    backgroundColor: getBackgroundColor($kind, $type, $theme) || $theme.colors.accent,
+    borderTopLeftRadius: $theme.borders.radius400,
+    borderTopRightRadius: $theme.borders.radius400,
+    borderBottomRightRadius: $theme.borders.radius400,
+    borderBottomLeftRadius: $theme.borders.radius400,
+    boxShadow: isInline ? 'none' : $theme.lighting.shadow600,
+    opacity: $isVisible ? 1 : 0,
+    transitionProperty: 'all',
+    transitionDuration: $theme.animation.timing200,
+    transitionTimingFunction: $theme.animation.easeInOutCurve,
+    display: 'flex',
+    justifyContent: 'space-between'
+  });
+}); // $FlowFixMe https://github.com/facebook/flow/issues/7745
+
+Body.displayName = "Body";
+var CloseIconSvg = (0,_styles_index_js__WEBPACK_IMPORTED_MODULE_1__.styled)('svg', function (props) {
+  return _objectSpread(_objectSpread({}, (0,_icon_styled_components_js__WEBPACK_IMPORTED_MODULE_2__.getSvgStyles)(props)), {}, {
+    cursor: 'pointer',
+    width: props.$size || '16px',
+    flexShrink: 0,
+    outline: props.$isFocusVisible ? "3px solid ".concat(props.$theme.colors.accent) : 'none'
+  });
+});
+CloseIconSvg.displayName = "CloseIconSvg";
+
+/***/ }),
+
+/***/ "./node_modules/baseui/esm/toast/toast.js":
+/*!************************************************!*\
+  !*** ./node_modules/baseui/esm/toast/toast.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/overrides.js */ "./node_modules/baseui/esm/helpers/overrides.js");
+/* harmony import */ var _icon_delete_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../icon/delete.js */ "./node_modules/baseui/esm/icon/delete.js");
+/* harmony import */ var _styled_components_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styled-components.js */ "./node_modules/baseui/esm/toast/styled-components.js");
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants.js */ "./node_modules/baseui/esm/toast/constants.js");
+/* harmony import */ var _locale_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../locale/index.js */ "./node_modules/baseui/esm/locale/index.js");
+/* harmony import */ var _utils_focusVisible_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/focusVisible.js */ "./node_modules/baseui/esm/utils/focusVisible.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/*
+Copyright (c) Uber Technologies, Inc.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
+*/
+
+/* global document */
+
+
+
+
+
+
+
+
+var Toast = /*#__PURE__*/function (_React$Component) {
+  _inherits(Toast, _React$Component);
+
+  var _super = _createSuper(Toast);
+
+  function Toast(props) {
+    var _this;
+
+    _classCallCheck(this, Toast);
+
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "autoHideTimeout", void 0);
+
+    _defineProperty(_assertThisInitialized(_this), "animateInTimer", void 0);
+
+    _defineProperty(_assertThisInitialized(_this), "animateOutCompleteTimer", void 0);
+
+    _defineProperty(_assertThisInitialized(_this), "closeRef", void 0);
+
+    _defineProperty(_assertThisInitialized(_this), "previouslyFocusedElement", void 0);
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      isVisible: false,
+      isRendered: true,
+      isFocusVisible: false
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleFocus", function (event) {
+      if ((0,_utils_focusVisible_js__WEBPACK_IMPORTED_MODULE_1__.isFocusVisible)(event)) {
+        _this.setState({
+          isFocusVisible: true
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleBlur", function (event) {
+      if (_this.state.isFocusVisible !== false) {
+        _this.setState({
+          isFocusVisible: false
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "animateIn", function () {
+      // Defer to next event loop
+      _this.animateInTimer = setTimeout(function () {
+        _this.setState({
+          isVisible: true
+        });
+      }, 0);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "animateOut", function () {
+      var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+
+      _this.setState({
+        isVisible: false
+      }); // Remove the toast from the DOM after animation finishes
+
+
+      _this.animateOutCompleteTimer = setTimeout(function () {
+        _this.setState({
+          isRendered: false
+        });
+
+        callback();
+      }, 600);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dismiss", function () {
+      _this.animateOut(_this.props.onClose);
+
+      if (_this.props.autoFocus && _this.previouslyFocusedElement) {
+        _this.previouslyFocusedElement.focus();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onFocus", function (e) {
+      if (!_this.state.isVisible) return;
+      clearTimeout(_this.autoHideTimeout);
+      clearTimeout(_this.animateOutCompleteTimer);
+      typeof _this.props.onFocus === 'function' && _this.props.onFocus(e);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onMouseEnter", function (e) {
+      if (!_this.state.isVisible) return;
+      clearTimeout(_this.autoHideTimeout);
+      clearTimeout(_this.animateOutCompleteTimer);
+      typeof _this.props.onMouseEnter === 'function' && _this.props.onMouseEnter(e);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onBlur", function (e) {
+      _this.startTimeout();
+
+      typeof _this.props.onBlur === 'function' && _this.props.onBlur(e);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onMouseLeave", function (e) {
+      _this.startTimeout();
+
+      typeof _this.props.onMouseLeave === 'function' && _this.props.onMouseLeave(e);
+    });
+
+    _this.closeRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
+    _this.previouslyFocusedElement = null;
+    return _this;
+  }
+
+  _createClass(Toast, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.animateIn();
+      this.startTimeout();
+
+      if (typeof document !== 'undefined' && this.props.autoFocus && this.closeRef && this.closeRef.current && this.closeRef.current.focus && typeof this.closeRef.current.focus === 'function') {
+        this.previouslyFocusedElement = document.activeElement; // $FlowFixMe: CloseIcon is `mixed` type so doesn't like `focus` call.
+
+        this.closeRef.current.focus();
+        this.setState({
+          isFocusVisible: true
+        });
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.autoHideDuration !== prevProps.autoHideDuration || this.props.__updated !== prevProps.__updated) {
+        this.startTimeout();
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.clearTimeout();
+    }
+  }, {
+    key: "startTimeout",
+    value: function startTimeout() {
+      if (this.props.autoHideDuration) {
+        if (this.autoHideTimeout) {
+          clearTimeout(this.autoHideTimeout);
+        }
+
+        this.autoHideTimeout = setTimeout(this.dismiss, this.props.autoHideDuration);
+      }
+    }
+  }, {
+    key: "clearTimeout",
+    value: function (_clearTimeout) {
+      function clearTimeout() {
+        return _clearTimeout.apply(this, arguments);
+      }
+
+      clearTimeout.toString = function () {
+        return _clearTimeout.toString();
+      };
+
+      return clearTimeout;
+    }(function () {
+      [this.autoHideTimeout, this.animateInTimer, this.animateOutCompleteTimer].forEach(function (timerId) {
+        if (timerId) {
+          clearTimeout(timerId);
+        }
+      });
+    })
+  }, {
+    key: "getSharedProps",
+    value: function getSharedProps() {
+      var _this$props = this.props,
+          kind = _this$props.kind,
+          notificationType = _this$props.notificationType,
+          closeable = _this$props.closeable;
+      var _this$state = this.state,
+          isRendered = _this$state.isRendered,
+          isVisible = _this$state.isVisible;
+      return {
+        $kind: kind,
+        $type: notificationType,
+        $closeable: closeable,
+        $isRendered: isRendered,
+        $isVisible: isVisible
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props2 = this.props,
+          children = _this$props2.children,
+          closeable = _this$props2.closeable;
+      var isRendered = this.state.isRendered;
+      var _this$props$overrides = this.props.overrides,
+          BodyOverride = _this$props$overrides.Body,
+          CloseIconOverride = _this$props$overrides.CloseIcon,
+          InnerContainerOverride = _this$props$overrides.InnerContainer;
+
+      var _getOverrides = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.getOverrides)(BodyOverride, _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.Body),
+          _getOverrides2 = _slicedToArray(_getOverrides, 2),
+          Body = _getOverrides2[0],
+          bodyProps = _getOverrides2[1];
+
+      var _getOverrides3 = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.getOverrides)(InnerContainerOverride, _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.InnerContainer),
+          _getOverrides4 = _slicedToArray(_getOverrides3, 2),
+          InnerContainer = _getOverrides4[0],
+          innerContainerProps = _getOverrides4[1];
+
+      var _getOverrides5 = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.getOverrides)(CloseIconOverride, _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.CloseIconSvg),
+          _getOverrides6 = _slicedToArray(_getOverrides5, 2),
+          CloseIcon = _getOverrides6[0],
+          closeIconProps = _getOverrides6[1];
+
+      var closeIconOverrides = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.mergeOverrides)({
+        Svg: {
+          component: CloseIcon
+        }
+      }, // $FlowFixMe
+      {
+        Svg: CloseIconOverride
+      });
+      var sharedProps = this.getSharedProps();
+
+      if (!isRendered) {
+        return null;
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_locale_index_js__WEBPACK_IMPORTED_MODULE_4__.LocaleContext.Consumer, null, function (locale) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Body, _extends({
+          role: "alert",
+          "data-baseweb": _this2.props['data-baseweb'] || 'toast'
+        }, sharedProps, bodyProps, {
+          // the properties below have to go after overrides
+          onBlur: _this2.onBlur,
+          onFocus: _this2.onFocus,
+          onMouseEnter: _this2.onMouseEnter,
+          onMouseLeave: _this2.onMouseLeave
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(InnerContainer, _extends({}, sharedProps, innerContainerProps), typeof children === 'function' ? children({
+          dismiss: _this2.dismiss
+        }) : children), closeable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_icon_delete_js__WEBPACK_IMPORTED_MODULE_5__.default, _extends({
+          ref: _this2.closeRef,
+          role: "button",
+          tabIndex: 0,
+          $isFocusVisible: _this2.state.isFocusVisible,
+          onClick: _this2.dismiss,
+          onKeyPress: function onKeyPress(event) {
+            if (event.key === 'Enter') {
+              _this2.dismiss();
+            }
+          },
+          title: locale.toast.close
+        }, sharedProps, closeIconProps, {
+          onFocus: (0,_utils_focusVisible_js__WEBPACK_IMPORTED_MODULE_1__.forkFocus)(closeIconProps, _this2.handleFocus),
+          onBlur: (0,_utils_focusVisible_js__WEBPACK_IMPORTED_MODULE_1__.forkBlur)(closeIconProps, _this2.handleBlur),
+          overrides: closeIconOverrides
+        })) : null);
+      });
+    }
+  }]);
+
+  return Toast;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+_defineProperty(Toast, "defaultProps", {
+  autoFocus: false,
+  autoHideDuration: 0,
+  closeable: true,
+  kind: _constants_js__WEBPACK_IMPORTED_MODULE_6__.KIND.info,
+  notificationType: _constants_js__WEBPACK_IMPORTED_MODULE_6__.TYPE.toast,
+  // Do we need a separate handler for
+  // when a notification dismisses automatically
+  onClose: function onClose() {},
+  onBlur: function onBlur() {},
+  onFocus: function onFocus() {},
+  onMouseEnter: function onMouseEnter() {},
+  onMouseLeave: function onMouseLeave() {},
+  overrides: {}
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Toast);
+
+/***/ }),
+
+/***/ "./node_modules/baseui/esm/toast/toaster.js":
+/*!**************************************************!*\
+  !*** ./node_modules/baseui/esm/toast/toaster.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ToasterContainer": () => (/* binding */ ToasterContainer),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/overrides.js */ "./node_modules/baseui/esm/helpers/overrides.js");
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants.js */ "./node_modules/baseui/esm/toast/constants.js");
+/* harmony import */ var _styled_components_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styled-components.js */ "./node_modules/baseui/esm/toast/styled-components.js");
+/* harmony import */ var _toast_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./toast.js */ "./node_modules/baseui/esm/toast/toast.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/*
+Copyright (c) Uber Technologies, Inc.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
+*/
+
+/* eslint-disable cup/no-undef */
+
+
+
+
+
+
+var toasterRef = null;
+var ToasterContainer = /*#__PURE__*/function (_React$Component) {
+  _inherits(ToasterContainer, _React$Component);
+
+  var _super = _createSuper(ToasterContainer);
+
+  function ToasterContainer(_props) {
+    var _this;
+
+    _classCallCheck(this, ToasterContainer);
+
+    _this = _super.call(this, _props);
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      isMounted: false,
+      toasts: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dismissHandlers", {});
+
+    _defineProperty(_assertThisInitialized(_this), "toastId", 0);
+
+    _defineProperty(_assertThisInitialized(_this), "getToastProps", function (props) {
+      var _this$props = _this.props,
+          autoFocus = _this$props.autoFocus,
+          autoHideDuration = _this$props.autoHideDuration,
+          closeable = _this$props.closeable;
+      var key = props.key || "toast-".concat(_this.toastId++);
+      return _objectSpread(_objectSpread({
+        autoFocus: autoFocus,
+        autoHideDuration: autoHideDuration,
+        closeable: closeable
+      }, props), {}, {
+        key: key
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "show", function () {
+      var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      if (_this.state.toasts.map(function (t) {
+        return t.key;
+      }).includes(props.key)) {
+        _this.update(props.key, props);
+
+        return props.key;
+      }
+
+      var toastProps = _this.getToastProps(props);
+
+      _this.setState(function (_ref) {
+        var toasts = _ref.toasts;
+        return {
+          toasts: [].concat(_toConsumableArray(toasts), [toastProps])
+        };
+      });
+
+      return toastProps.key;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "update", function (key, props) {
+      _this.setState(function (_ref2) {
+        var toasts = _ref2.toasts;
+        var updatedToasts = toasts.map(function (toast) {
+          if (toast.key === key) {
+            var updatedToastProps = _objectSpread(_objectSpread(_objectSpread({}, toast), _this.getToastProps(_objectSpread({
+              autoHideDuration: toast.autoHideDuration
+            }, props))), {}, {
+              key: key
+            }, _this.props.resetAutoHideTimerOnUpdate ? {
+              __updated: (parseInt(toast.__updated) || 0) + 1
+            } : {});
+
+            return updatedToastProps;
+          }
+
+          return toast;
+        });
+        return {
+          toasts: updatedToasts
+        };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dismiss", function (key) {
+      if (_this.dismissHandlers[key]) {
+        _this.dismissHandlers[key]();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "clearAll", function () {
+      Object.keys(_this.dismissHandlers).forEach(function (key) {
+        _this.dismissHandlers[key]();
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "clear", function (key) {
+      key === undefined ? _this.clearAll() : _this.dismiss(key);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "internalOnClose", function (key) {
+      delete _this.dismissHandlers[key];
+
+      _this.setState(function (_ref3) {
+        var toasts = _ref3.toasts;
+        return {
+          toasts: toasts.filter(function (t) {
+            return !(t.key === key);
+          })
+        };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getOnCloseHandler", function (key, onClose) {
+      return function () {
+        _this.internalOnClose(key);
+
+        typeof onClose === 'function' && onClose();
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "renderToast", function (toastProps) {
+      var onClose = toastProps.onClose,
+          children = toastProps.children,
+          key = toastProps.key,
+          restProps = _objectWithoutProperties(toastProps, ["onClose", "children", "key"]);
+
+      var _this$props$overrides = _this.props.overrides,
+          BodyOverride = _this$props$overrides.ToastBody,
+          CloseIconOverride = _this$props$overrides.ToastCloseIcon,
+          InnerContainerOverride = _this$props$overrides.ToastInnerContainer;
+      var globalToastOverrides = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.mergeOverrides)({
+        Body: _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.Body,
+        CloseIcon: _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.CloseIconSvg,
+        InnerContainer: _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.InnerContainer
+      }, // $FlowFixMe
+      {
+        Body: BodyOverride,
+        CloseIcon: CloseIconOverride,
+        InnerContainer: InnerContainerOverride
+      });
+      var toastOverrides = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.mergeOverrides)(globalToastOverrides, toastProps.overrides);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_toast_js__WEBPACK_IMPORTED_MODULE_4__.default, _extends({}, restProps, {
+        overrides: toastOverrides,
+        key: key,
+        onClose: _this.getOnCloseHandler(key, onClose)
+      }), function (_ref4) {
+        var dismiss = _ref4.dismiss;
+        _this.dismissHandlers[key] = dismiss; // $FlowFixMe
+
+        return children;
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getSharedProps", function () {
+      var placement = _this.props.placement;
+      return {
+        $placement: placement
+      };
+    });
+
+    toasterRef = _assertThisInitialized(_this);
+    return _this;
+  }
+
+  _createClass(ToasterContainer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        isMounted: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var sharedProps = this.getSharedProps();
+      var RootOverride = this.props.overrides.Root;
+
+      var _getOverrides = (0,_helpers_overrides_js__WEBPACK_IMPORTED_MODULE_2__.getOverrides)(RootOverride, _styled_components_js__WEBPACK_IMPORTED_MODULE_3__.Root),
+          _getOverrides2 = _slicedToArray(_getOverrides, 2),
+          Root = _getOverrides2[0],
+          rootProps = _getOverrides2[1];
+
+      var toastsLength = this.state.toasts.length;
+      var toastsToRender = []; // render the toasts from the newest at the start
+      // to the oldest at the end
+      // eslint-disable-next-line for-direction
+
+      for (var i = toastsLength - 1; i >= 0; i--) {
+        toastsToRender.push(this.renderToast(this.state.toasts[i]));
+      }
+
+      var root = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Root, _extends({
+        "data-baseweb": "toaster"
+      }, sharedProps, rootProps), toastsToRender); //Only render the portal in the browser, otherwise render the toasts and children
+
+      if (this.state.isMounted) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, this.props.usePortal && typeof document !== 'undefined' ? /*#__PURE__*/react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal(root, // $FlowFixMe
+        document.body) : root, this.props.children);
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, this.props.children);
+      }
+    }
+  }]);
+
+  return ToasterContainer;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+_defineProperty(ToasterContainer, "defaultProps", {
+  autoFocus: false,
+  autoHideDuration: 0,
+  children: null,
+  closeable: true,
+  overrides: {},
+  placement: _constants_js__WEBPACK_IMPORTED_MODULE_5__.PLACEMENT.top,
+  resetAutoHideTimerOnUpdate: true,
+  usePortal: true
+});
+
+var toaster = {
+  getRef: function getRef() {
+    return toasterRef;
+  },
+  show: function show(children) {
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    // toasts can not be added until Toaster is mounted
+    // no SSR for the `toaster.show()`
+    var toasterInstance = this.getRef();
+
+    if (toasterInstance) {
+      return toasterInstance.show(_objectSpread(_objectSpread({}, props), {}, {
+        children: children
+      }));
+    } else if (true) {
+      throw new Error('Please make sure to add the ToasterContainer to your application, and it is mounted, before adding toasts! You can find more information here: https://baseweb.design/components/toast');
+    }
+  },
+  info: function info(children) {
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return this.show(children, _objectSpread(_objectSpread({}, props), {}, {
+      kind: _constants_js__WEBPACK_IMPORTED_MODULE_5__.KIND.info
+    }));
+  },
+  positive: function positive(children) {
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return this.show(children, _objectSpread(_objectSpread({}, props), {}, {
+      kind: _constants_js__WEBPACK_IMPORTED_MODULE_5__.KIND.positive
+    }));
+  },
+  warning: function warning(children) {
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return this.show(children, _objectSpread(_objectSpread({}, props), {}, {
+      kind: _constants_js__WEBPACK_IMPORTED_MODULE_5__.KIND.warning
+    }));
+  },
+  negative: function negative(children) {
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return this.show(children, _objectSpread(_objectSpread({}, props), {}, {
+      kind: _constants_js__WEBPACK_IMPORTED_MODULE_5__.KIND.negative
+    }));
+  },
+  update: function update(key, props) {
+    var toasterInstance = this.getRef();
+
+    if (toasterInstance) {
+      toasterInstance.update(key, props);
+    } else if (true) {
+      // eslint-disable-next-line no-console
+      console.error('No ToasterContainer is mounted yet.');
+    }
+  },
+  clear: function clear(key) {
+    var toasterInstance = this.getRef();
+
+    if (toasterInstance) {
+      toasterInstance.clear(key);
+    } else if (true) {
+      // eslint-disable-next-line no-console
+      console.error('No ToasterContainer is mounted yet.');
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toaster);
 
 /***/ }),
 
@@ -19221,11 +20138,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var baseui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! baseui */ "./node_modules/baseui/esm/styles/styled.js");
 /* harmony import */ var baseui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! baseui */ "./node_modules/baseui/esm/helpers/base-provider.js");
 /* harmony import */ var baseui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! baseui */ "./node_modules/baseui/esm/themes/light-theme/light-theme.js");
-/* harmony import */ var baseui_layer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! baseui/layer */ "./node_modules/baseui/esm/layer/layer.js");
+/* harmony import */ var baseui_layer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! baseui/layer */ "./node_modules/baseui/esm/layer/layer.js");
 /* harmony import */ var _NewNavbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewNavbar */ "./src/components/NewNavbar.jsx");
+/* harmony import */ var baseui_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! baseui/toast */ "./node_modules/baseui/esm/toast/toaster.js");
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 
 
 
@@ -19259,7 +20178,7 @@ const Layout = ({
     value: engine
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(baseui__WEBPACK_IMPORTED_MODULE_4__.default, {
     theme: baseui__WEBPACK_IMPORTED_MODULE_5__.LightTheme
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Centered, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_NewNavbar__WEBPACK_IMPORTED_MODULE_1__.NewNavbar, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(baseui_layer__WEBPACK_IMPORTED_MODULE_6__.default, null, children)))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Centered, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(baseui_toast__WEBPACK_IMPORTED_MODULE_6__.ToasterContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_NewNavbar__WEBPACK_IMPORTED_MODULE_1__.NewNavbar, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(baseui_layer__WEBPACK_IMPORTED_MODULE_7__.default, null, children))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
@@ -19392,10 +20311,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const fetchWithToken = async (url, token) => {
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token
     }
   });
 
@@ -19422,11 +20341,11 @@ const fetchWithToken = (url, token) => (
 
 
 function useUser() {
-  const localStorageToken = localStorage.getItem('token');
+  const localStorageToken = localStorage.getItem("token");
   const {
     data,
     error
-  } = (0,swr__WEBPACK_IMPORTED_MODULE_0__.default)(['https://secnds-server.herokuapp.com/myaccount', localStorageToken], fetchWithToken);
+  } = (0,swr__WEBPACK_IMPORTED_MODULE_0__.default)(["https://mango-backend.herokuapp.com/api/protected/myaccount", localStorageToken], fetchWithToken);
   return {
     user: data,
     isLoading: !data && !error,
