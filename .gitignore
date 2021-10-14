@@ -1,4 +1,5 @@
 .cache/
+.cache/redux
 node_modules/
 public/
 
